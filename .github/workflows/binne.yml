@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: build ghr
+name: test download artifact
 
 # Controls when the workflow will run
 on:
@@ -19,20 +19,19 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       - uses: actions/setup-go@v4
-
-      # Runs a single command using the runners shell
-      - name: build ghr
-        run: go install github.com/tcnksm/ghr@latest
-      - name: lsd much?
-        run: ls -lth
-
+      
       # Runs a set of commands using the runners shell
-      - name: tarthat
-        run: tar -cf binz.tar bin
-      - name: gzipthat
-        run: gzip binz.tar
+      - name: toop
+        run: echo foobar > foo.txt
         
       - uses: actions/upload-artifact@v3
         with:
-          name: ghrb
-          path: ghr binz.tar.gz
+          name: foob
+          path: foo.txt
+          
+      - uses: actions/download-artifact@v3
+        with:
+          name: foob
+    
+      - name: Display structure of downloaded files
+        run: ls -R
