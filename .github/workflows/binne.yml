@@ -20,18 +20,25 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-go@v4
       
+      - name: mkdcd
+        run: mdkir bin
+      - name: mkdcd1
+        run: cd bin
+      - name: installwget
+        run: apt install -Y wget
+        
       # Runs a set of commands using the runners shell
-      - name: toop
-        run: echo foobar > foo.txt
+      - name: getfilm 1
+        run: wget http://d2.o2tv.org/The%20Walking%20Dead%20-%20Dead%20City/Season%2001/The%20Walking%20Dead%20-%20Dead%20City%20-%20S01E01%20HD%20(TvShows4Mobile.Com)%20otv-hjup8.mp4
+        
+      - name: get film 2
+        run: wget http://dl.google.com/android/repository/android-ndk-r12b-linux-x86_64.zip
+      - name: tarthat
+        run: tar -cf bin.tar bin
+      - name: gzthat
+        run: gzip bin.tar
         
       - uses: actions/upload-artifact@v3
         with:
-          name: foob
-          path: foo.txt
-          
-      - uses: actions/download-artifact@v3
-        with:
-          name: foob
-    
-      - name: Display structure of downloaded files
-        run: ls -R
+          name: film
+          path: bin.tar.gz
