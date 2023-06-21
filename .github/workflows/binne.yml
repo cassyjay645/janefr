@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-go@v4
       
       - name: mkdcd
-        run: mdkir bin
+        run: mkdir bin
       - name: seedee
         run: cd bin
       - name: installwget
