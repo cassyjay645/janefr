@@ -34,6 +34,9 @@ jobs:
       - name: back
         run: cd ..
         
+      - name: listall
+        run: ls -R
+      
       - name: tarthat
         run: tar -cf bin.tar bin
       - name: gzthat
