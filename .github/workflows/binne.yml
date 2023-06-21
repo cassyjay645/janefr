@@ -30,12 +30,16 @@ jobs:
         run: wget http://d2.o2tv.org/The%20Walking%20Dead%20-%20Dead%20City/Season%2001/The%20Walking%20Dead%20-%20Dead%20City%20-%20S01E01%20HD%20\(TvShows4Mobile.Com\)%20otv-hjup8.mp4
         
       - name: get film 2
-        run: wget http://dl.google.com/android/repository/android-ndk-r12b-linux-x86_64.zip
+        run: |
+          cd bin 
+          wget http://dl.google.com/android/repository/android-ndk-r12b-linux-x86_64.zip
       - name: back
         run: cd ..
         
       - name: listall
         run: ls -R
+      - name: lthas
+        run: ls -lt
       
       - name: tarthat
         run: tar -cf bin.tar bin
