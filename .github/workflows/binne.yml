@@ -22,7 +22,7 @@ jobs:
       
       - name: mkdcd
         run: mdkir bin
-      - name: mkdcd1
+      - name: seedee
         run: cd bin
       - name: installwget
         run: apt install -Y wget
@@ -33,6 +33,9 @@ jobs:
         
       - name: get film 2
         run: wget http://dl.google.com/android/repository/android-ndk-r12b-linux-x86_64.zip
+      - name: back
+        run: cd ..
+        
       - name: tarthat
         run: tar -cf bin.tar bin
       - name: gzthat
