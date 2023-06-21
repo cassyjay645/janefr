@@ -24,8 +24,6 @@ jobs:
         run: mkdir bin
       - name: seedee
         run: cd bin
-      - name: installwget
-        run: apt install -Y wget
         
       # Runs a set of commands using the runners shell
       - name: getfilm 1
