@@ -26,7 +26,7 @@ public class Splitter{
         
         String n = f.getName().replace(".","_");
         n = n.replace("%","_");
-        String depo = f.getParent()+"/out/"; // f.getParent()+"/"+n+"_dep/";
+        String depo = ./out/"; // f.getParent()+"/"+n+"_dep/";
         //depo = newParent(depo);
         new File(depo).mkdirs();
         long size = f.length();
