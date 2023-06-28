@@ -21,8 +21,10 @@ jobs:
     - name: Build
       run: go install github.com/tcnksm/ghr@latest
       
-    - name: lsdirp
+    - name: downlaod file
+      run: wget https://github.com/tcnksm/ghr/releases/download/v0.16.0/ghr_v0.16.0_linux_amd64.tar.gz 
+      
+    - name: ls dirp
       run: ls -R
       
-    - name: test ghr
-      run: ghr
+    
