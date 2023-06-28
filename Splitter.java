@@ -31,7 +31,7 @@ public class Splitter{
         new File(depo).mkdirs();
         long size = f.length();
         //long mb1 = 1000000;
-        long mb1 = 1024*1024*1024;
+        long mb1 = 1024*1024*100;// 100mb
         int br = 0;
         int dw=0;
         
