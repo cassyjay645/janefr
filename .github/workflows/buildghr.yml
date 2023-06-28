@@ -19,6 +19,10 @@ jobs:
         go-version: 1.19
 
     - name: Build
-      run: go get github.com/tcnksm/ghr@latest
+      run: go install github.com/tcnksm/ghr@latest
+      
     - name: lsdirp
       run: ls -R
+      
+    - name: test ghr
+      run: ghr --help
