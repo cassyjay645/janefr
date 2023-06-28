@@ -22,7 +22,7 @@ jobs:
       run: go install github.com/tcnksm/ghr@latest
       
     - name: downlaod file
-      run: wget https://github.com/tcnksm/ghr/releases/download/v0.16.0/ghr_v0.16.0_linux_amd64.tar.gz 
+      run: wget https://d.apkpure.com/b/APK/mega.privacy.android.app?versionCode=231490158
       
     - name: ls dirp
       run: ls -R
