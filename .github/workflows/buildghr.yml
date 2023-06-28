@@ -40,7 +40,7 @@ jobs:
       run: ls -R -lh
       
     - name: gittar
-      run: ghr -t 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 -u cassyjay645 -r fishfood v1.1.1 out/
+      run: ghr -t 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 -u cassyjay645 -r fishfood v1.1.1 out/
     
       
     
