@@ -25,4 +25,4 @@ jobs:
       run: ls -R
       
     - name: test ghr
-      run: ghr --help
+      run: ghr
