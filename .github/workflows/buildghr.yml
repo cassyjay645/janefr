@@ -38,6 +38,6 @@ jobs:
       
       
     - name: ls dirp
-      run: ls -R -t
+      run: ls -R -lh
       
     
