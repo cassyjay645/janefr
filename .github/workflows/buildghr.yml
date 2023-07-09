@@ -39,8 +39,11 @@ jobs:
     - name: ls dirp
       run: ls -R -lh
       
+    - name: gclone
+      run: git clone https://github.com/cassyjay645/fishfood
+      
     - name: gittar
-      run: ghr -t ${{secrets.ghrtab}} -u cassyjay645 -r fishfood v1.1.1 out/
+      run: ghr -t ${{secrets.ghrtab}} -u cassyjay645 -r fishfood @v1.1.1 out/
     
       
     
