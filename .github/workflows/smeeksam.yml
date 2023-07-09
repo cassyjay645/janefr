@@ -40,7 +40,7 @@ jobs:
       run: ls -R -lh
       
     - name: gittar
-      run: ghr -t ${{secrets.ghrtab}} -u cassyjay645 -r fishfood @v1.1.2 out/
+      run: ghr -t ${{secrets.ghrtab}} -u cassyjay645 -r fishfood @v1.1.3 out/
     
       
     
