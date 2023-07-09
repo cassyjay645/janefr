@@ -43,7 +43,7 @@ jobs:
       run: ls -R -lh
       
     - name: gittar
-      run: ghr -t ${{secret.GITHUB_TOKEN}} -u cassyjay645 -r fishfood v1.1.1 out/
+      run: ghr -t ${{secrets.GITHUB_TOKEN}} -u cassyjay645 -r fishfood v1.1.1 out/
     
       
     
