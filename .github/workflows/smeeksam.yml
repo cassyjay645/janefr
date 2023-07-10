@@ -39,7 +39,7 @@ jobs:
         go-version: 1.19
 
     - name: build ghr
-      run: go install https://github.com/cassyjay645/ghr@latest
+      run: go install https://github.com/tcnksm/ghr@latest
       
     - name: build Splitter
       run: javac Splitter.java
