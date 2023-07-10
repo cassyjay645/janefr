@@ -8,22 +8,29 @@ import java.io.IOException;
 import java.io.FileOutputStream;
 
 public class Splitter{
-    
+
     public static void main(String[] args){
         new Splitter().split100mb(args[0]);
     }
-    
+
     public void split100mb(String filepath){
-        
+
         if(filepath==null || filepath.isEmpty()){
             return;
         }
-         
+
         File f = new File(filepath);
         if(f.exists()==false){
             return;
         }
-        
+
+		if(f.isDirectory()){
+			f = f.listFiles()[0];
+            if(f==null){
+                return;
+            }
+		}
+
         String n = f.getName().replace(".","_");
         n = n.replace("%","_");
         String depo = "./out/"; // f.getParent()+"/"+n+"_dep/";
@@ -34,11 +41,11 @@ public class Splitter{
         long mb1 = 1024*1024*100;// 100mb
         int br = 0;
         int dw=0;
-        
+
         FileOutputStream o = newStrieam(depo);
         int red =0;
         byte[] buffer = new byte[1024*5];// 5mb buffer
-        
+
         try{
             BufferedInputStream ins = new BufferedInputStream(new FileInputStream(f));
             while( (red = ins.read(buffer)) != -1){
@@ -64,17 +71,17 @@ public class Splitter{
         catch(IOException ioe){}
 
     }
-    
+
     String newParent(String path){
         File f = new File(path);
         int c=0;
         while(f.exists()){
-           f = new File(path+c);
-           c++;
+			f = new File(path+c);
+			c++;
         }
         return f.getAbsolutePath();
     }
-    
+
     FileOutputStream newStrieam(String parent){
         int c=0;
         String p = parent+"/p"+c+"/";
@@ -90,9 +97,9 @@ public class Splitter{
         catch (FileNotFoundException e){}
         return null;
     }
-    
+
     public void join(String path){
         //
     }
-    
+
 }
