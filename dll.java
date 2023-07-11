@@ -1,4 +1,4 @@
-package com.parttly;
+//package com.parttly;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -9,7 +9,9 @@ import java.io.FileOutputStream;
 import java.io.BufferedInputStream;
 
 public class dll{
-	public static void main(String[] args){		
+	public static void main(String[] args){
+		System.out.println("args.length == "+args.length);
+		System.out.println(""+args.toString());
 		new dll(args[0], args[1]);
 	}
 
