@@ -9,9 +9,10 @@ on:
         description: url
         type: string
       fname:
-        required: true
+        required: false
         type: string
         description: filename
+        default: 'fname'
 
 jobs:
   build:
@@ -28,6 +29,6 @@ jobs:
     - name: Build dll
       run: javac dll.java
     - name: wget
-      run: java dll ${{ inputs.url }} ${{ inputs.fname }}
+      run: java dll ${{ inputs.url }} 'whrx.mp4'
     - name: lsdirp
       run: ls -R
