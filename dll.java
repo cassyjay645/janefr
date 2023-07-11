@@ -10,10 +10,11 @@ public class dll{
 	public static void main(String[] args){		
 		new dll(args[0], args[1]);
 	}
-	
+
 	// 
-	int BUFFER_SIZE = 3145728; // 3145728bytes = 3mb
-	
+	int BUFFER_SIZE = 1048576; // 1048576 = 1mb// 3145728bytes = 3mb
+	String uas1 = "Mozilla/5.0 (Android 12; Mobile; LG-M255; rv:100.0) Gecko/100.0 Firefox/100.0Mozilla/5.0 (Linux; Android 12) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.61 Mobile Safari/537.36";
+
 	public dll(String url, String fname){
 		FileOutputStream o = null;
 		HttpURLConnection conn=null;
@@ -23,16 +24,16 @@ public class dll{
 			conn = (HttpURLConnection) new URL(url).openConnection(Proxy.NO_PROXY);
 			conn.setFollowRedirects(true);
 			conn.setInstanceFollowRedirects(true);
-			conn.addRequestProperty("User-Agent","chrome; 199 gecko ;firefox ;linux 12");
+			conn.addRequestProperty("User-Agent", uas1);
 			ins = new BufferedInputStream( conn.getInputStream());
 			byte[] buff = new byte[BUFFER_SIZE];
 			int red=0;
-			
+
 			while( (red = ins.read(buff) ) != -1){
 				o.write(buff,0,red);
 			}
 			o.flush();
-			
+
 		}catch (IOException e){}
 		finally{
 			if(o!=null){
@@ -53,7 +54,7 @@ public class dll{
 		}
 
 	}
-	
+
 	void log(String msg){
 		System.out.println(msg);
 	}
