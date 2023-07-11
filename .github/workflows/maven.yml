@@ -3,6 +3,15 @@ name: jserver
 
 on:
   workflow_dispatch:
+    inputs:
+      url:
+        required: true
+        description: url
+        type: string
+      fname:
+        required: true
+        type: string
+        description: filename
 
 jobs:
   build:
@@ -16,5 +25,9 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
-    - name: Build with Maven
-      run: javac app.java
+    - name: Build dll
+      run: javac dll.java
+    - name: wget
+      run: java dll ${{inputs.url}} ${{inputs.fname}}
+    - name: lsdirp
+      run: ls -R
