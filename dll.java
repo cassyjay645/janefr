@@ -4,33 +4,50 @@ import java.net.Proxy;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.FileOutputStream;
+import java.io.BufferedInputStream;
 
 public class dll{
-	public static void main(String[] args){
+	public static void main(String[] args){		
 		new dll(args[0], args[1]);
 	}
 	
 	public dll(String url, String fname){
+		FileOutputStream o = null;
+		HttpURLConnection conn=null;
+		BufferedInputStream ins=null;
 		try{
-			FileOutputStream o= new FileOutputStream(fname);
-			HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection(Proxy.NO_PROXY);
+			o= new FileOutputStream(fname);
+			conn = (HttpURLConnection) new URL(url).openConnection(Proxy.NO_PROXY);
 			conn.setFollowRedirects(true);
 			conn.setInstanceFollowRedirects(true);
 			conn.addRequestProperty("User-Agent","chrome; 199 gecko ;firefox ;linux 12");
-			InputStream ins = conn.getInputStream();
-			byte[] buff = new byte[1024*1024*2];
-			int red;
+			ins = new BufferedInputStream( conn.getInputStream());
+			byte[] buff = new byte[1024*5];
+			int red=0;
 			
 			while( (red = ins.read(buff) ) != -1){
 				o.write(buff,0,red);
 			}
 			o.flush();
-			o.close();
 			
-			ins.close();
-			
-			conn.disconnect();
 		}catch (IOException e){}
+		finally{
+			if(o!=null){
+				try{
+					o.close();
+				}catch(IOException ioe){}
+			}
+			if(ins!=null){
+				try{
+					ins.close();
+				}catch(IOException ioe){}
+			}
+			if(conn!=null){
+				try{
+					conn.disconnect();
+				}catch(Exception e){}
+			}
+		}
 
 	}
 	
