@@ -11,6 +11,9 @@ public class dll{
 		new dll(args[0], args[1]);
 	}
 	
+	// 
+	int BUFFER_SIZE = 3145728; // 3145728bytes = 3mb
+	
 	public dll(String url, String fname){
 		FileOutputStream o = null;
 		HttpURLConnection conn=null;
@@ -22,7 +25,7 @@ public class dll{
 			conn.setInstanceFollowRedirects(true);
 			conn.addRequestProperty("User-Agent","chrome; 199 gecko ;firefox ;linux 12");
 			ins = new BufferedInputStream( conn.getInputStream());
-			byte[] buff = new byte[1024*5];
+			byte[] buff = new byte[BUFFER_SIZE];
 			int red=0;
 			
 			while( (red = ins.read(buff) ) != -1){
