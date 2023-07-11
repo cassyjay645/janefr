@@ -1,3 +1,5 @@
+package com.parttly;
+
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.Proxy;
@@ -12,13 +14,14 @@ public class dll{
 	}
 
 	// 
-	int BUFFER_SIZE = 1048576; // 1048576 = 1mb// 3145728bytes = 3mb
+	int BUFFER_SIZE = 3145728; // 3145728bytes = 3mb
 	String uas1 = "Mozilla/5.0 (Android 12; Mobile; LG-M255; rv:100.0) Gecko/100.0 Firefox/100.0Mozilla/5.0 (Linux; Android 12) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.61 Mobile Safari/537.36";
 
 	public dll(String url, String fname){
 		FileOutputStream o = null;
 		HttpURLConnection conn=null;
 		BufferedInputStream ins=null;
+		System.out.println(url+"\n~~"+fname);
 		try{
 			o= new FileOutputStream(fname);
 			conn = (HttpURLConnection) new URL(url).openConnection(Proxy.NO_PROXY);
@@ -31,6 +34,7 @@ public class dll{
 
 			while( (red = ins.read(buff) ) != -1){
 				o.write(buff,0,red);
+
 			}
 			o.flush();
 
@@ -52,6 +56,7 @@ public class dll{
 				}catch(Exception e){}
 			}
 		}
+		System.out.println("done");
 
 	}
 
