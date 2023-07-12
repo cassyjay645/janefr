@@ -29,6 +29,6 @@ jobs:
     - name: Build dll
       run: javac dll.java
     - name: wget
-      run: java dll ${{ inputs.url }} 'whrx.mp4'
+      run: java dll '${{ inputs.url }}' '${{inputs.fname}}'
     - name: lsdirp
       run: ls -R
