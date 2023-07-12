@@ -24,22 +24,23 @@ public class dll{
 		FileOutputStream o = null;
 		HttpURLConnection conn=null;
 		BufferedInputStream ins=null;
-		System.out.println(url+"\n~~"+fname);
+		
 		try{
 			o= new FileOutputStream(fname);
-			conn = (HttpURLConnection) new URL(url).openConnection(Proxy.NO_PROXY);
+			conn = (HttpURLConnection) new URL(url).openConnection();
 			conn.setFollowRedirects(true);
 			conn.setInstanceFollowRedirects(true);
 			conn.addRequestProperty("User-Agent", uas1);
 			ins = new BufferedInputStream( conn.getInputStream());
 			byte[] buff = new byte[BUFFER_SIZE];
-			int red=0;
+			int red;
 
-			//while( (red = ins.read(buff) ) != -1){
-				//o.write(buff,0,red);
+			while( (red = ins.read(buff) ) != -1){
+				o.write(buff,0,red);
 
-			//}
-			//o.flush();
+			}
+			o.flush();
+			o.colse();
 
 		}catch (IOException e){}
 		finally{
