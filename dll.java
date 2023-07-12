@@ -40,7 +40,7 @@ public class dll{
 
 			}
 			o.flush();
-			o.colse();
+			o.close();
 
 		}catch (IOException e){}
 		finally{
