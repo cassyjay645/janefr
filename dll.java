@@ -34,11 +34,11 @@ public class dll{
 			byte[] buff = new byte[BUFFER_SIZE];
 			int red=0;
 
-			while( (red = ins.read(buff) ) != -1){
-				o.write(buff,0,red);
+			//while( (red = ins.read(buff) ) != -1){
+				//o.write(buff,0,red);
 
-			}
-			o.flush();
+			//}
+			//o.flush();
 
 		}catch (IOException e){}
 		finally{
