@@ -11,7 +11,8 @@ import java.io.BufferedInputStream;
 public class dll{
 	public static void main(String[] args){
 		System.out.println("args.length == "+args.length);
-		System.out.println(""+args.toString());
+		System.out.println(""+args[0]);
+		System.out.println(""+args[1]);
 		new dll(args[0], args[1]);
 	}
 
