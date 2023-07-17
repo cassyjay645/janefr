@@ -56,6 +56,10 @@ jobs:
     - name: ls dirp
       run: ls -R -lh
       
+    - name: touch index
+      if: ${{inputs.reltag}}
+      run: echo ${{inputs.reltag}} > out/idx.txt
+      
     - name: gittar
       if: ${{inputs.reltag}} 
       run: ghr -t ${{secrets.ghrtab}} -u cassyjay645 -r janefr ${{inputs.reltag}} out/
